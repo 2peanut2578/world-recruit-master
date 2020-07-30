@@ -1,37 +1,12 @@
-import React from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import { TextareaAutosize } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  table: {
-    width: "50%",
-    magin: "0 auto" 
-  }
-});
-const StyledTableCell = withStyles(theme => ({
-  head: {
-    backgroundColor: theme.palette.common.white,
-    color: theme.palette.common.black
-  },
-  body: {
-    fontSize: 14
-  }
-}))(TableCell);
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
-const StyledTableRow = withStyles(theme => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover
-    }
-  }
-}))(TableRow);
+
+
+
+
 function createData(name, info) {
   return { name, info };
 }
@@ -54,30 +29,56 @@ const rows = [
   )
 ];
 
-export default function TableInfo() {
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 500,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
+}));
+
+export default function ComplexGrid() {
   const classes = useStyles();
 
   return (
-    <div>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="customized table">
-          <TableHead textalign="center">
-            <StyledTableCell colSpan="2" align="center">
-              株式会社ワールド
-            </StyledTableCell>
-          </TableHead>
-          <TableBody>
-            {rows.map(row => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                  {row.name}
-                </StyledTableCell>
-                <StyledTableCell align="left">{row.info}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          株式会社ワールド
+        </Grid>
+        {rows.map(row => (
+          <Grid 
+          key={row.name}
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="stretch"
+         >
+            <Grid item xs={6} >
+              {row.name}
+            </Grid>
+            <Grid item xs={6}>
+              {row.info}
+            </Grid>
+          </Grid>
+       ))}
+      </Grid>
+     
     </div>
   );
 }

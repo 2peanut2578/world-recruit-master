@@ -15,8 +15,8 @@ function ComponentSelector(section, index) {
       return <ImageList key={index} data={section} />;
     case "Media":
       return <Media key={index} data={section} />;
-    // case "Image":
-    //   return <Image key={index} data={section} />;
+    case "Image":
+      return <Image key={index} data={section} />;
     case "TextList":
       return <TextList key={index} data={section} />;
     case "ViewList":
