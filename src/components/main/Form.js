@@ -6,7 +6,7 @@ export default function Form(Props) {
       <form action={Props.data.action}　className="contact-box">
       <div className="left"></div>
       <div className="right">
-      <h2 >Entry</h2> 
+      <h2 id="entry">Entry</h2> 
       {Props.data.items.map((item, index) => {
           return (
               <div>
