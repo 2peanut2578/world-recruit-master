@@ -1,89 +1,84 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import CardHeader from "@material-ui/core/CardHeader";
-import QueryBuilder from "@material-ui/icons/QueryBuilder";
-import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+function getImgPath(imgSrc) {
+  return require("../../img/" + imgSrc);
+}
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexFlow: 1,
-    margin: "30px 30px",
+    flexGrow: 1,
   },
-  card: {
-    padding: "10px",
-    maxWidth: "300px",
+  width: {
+    maxWidth: 345,
+    margin: "0 30px",
   },
   media: {
+    height: 160,
+    padding: theme.spacing(2),
+    textAlign: 'center',
     maxHeight: "150px",
   },
-  header: {
-    margin: "-15px 0 -10px 0",
-  },
-  time: {
-    marginRight: "10px",
-    opacity: "0.5",
-    fontSize: "small",
-  },
-  icon: {
-    marginRight: "10px",
-    fontSize: "12px",
-  },
-  description: {
-    fontWeight: "bold",
-    marginLeft: "-10px",
-    fontSize: "12px",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-  },
-});
-
-function getImgPath(imgSrc) {
-  return require("../../" + imgSrc);
-}
+  scroll:{
+    height: 110,
+    overflow: "auto"
+  }
+}));
 
 export default function ViewList(props) {
   const classes = useStyles();
 
   return (
-    <section className={classes.root}>
-      <Grid container spacing={1}>
-        <Grid item xs={12}>
-          <div className={classes.content}>
-            <h3>{props.data.heading}</h3>
-            {props.data.paragraphs.map((para, index) => {
+    <div className={classes.root}>
+       <h3>{props.data.heading}</h3>
+      <Grid container spacing={3}>
+     
+      {props.data.paragraphs.map((para, index) => {
               return (
-                <article key={index}>
-                  <CardHeader className={classes.header} title={props.data.title} />
-                  <CardMedia
-                    component="img"
-                    className={classes.media}
-                    src={getImgPath(para.image.src)}
-                    title={para.title}
-                  />
-                  <CardContent className={classes.content}>
-                    <Typography
-                      className={classes.description}
-                      variant="caption"
-                      color="textSecondary"
-                      component="p"
-                      children
-                    >
-                      {para.description}
-                    </Typography>
-                  </CardContent>
-                  </article>
-               );
-            })}
-          </div>
+        <Grid item sm={4} key={index}>
+        <Card className={classes.width}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={getImgPath(para.image.src)}
+          title={para.image.alt}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {para.person}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" 
+          component="p" className={classes.scroll}>
+          {para.text}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary" >
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          View More
+        </Button>
+      </CardActions>
+    </Card>
+    
         </Grid>
+    );
+            })}
+          
       </Grid>
-    </section>
+    </div>
   );
 }
+
+
+
