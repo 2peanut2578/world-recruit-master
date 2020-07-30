@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TableInfo from './Table';
 import Grid from "@material-ui/core/Grid";
 import Typography from '@material-ui/core/Typography';
-import { Paper } from "@material-ui/core";
 import SingleLineGridList from './ImageList';
+
 
 
 function getImgPath(imgSrc) {
@@ -14,11 +14,10 @@ function getImgPath(imgSrc) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-
+    width: "80%",
+    margin: "50px auto"
   },
   image: {
-    margin: "auto",
-    display: "block",
     maxWidth: "100%",
     maxHeight: "100%"
   },
@@ -27,8 +26,25 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     maxWidth: 1200,
   },
-  p: {
-    margin:'auto'
+  paragraph: {
+    marginBottom: "20px",
+    textAlign: "justify",
+    lineHeight: "1.8",
+  },
+  subtitle: {
+    position: "relative",
+    fontSize: "12px",
+    padding: "-20px 0 50px 0",
+    color: `rgba(0,0,0,0.6)`,
+    '&:after': {
+      content: `' '`,
+      position: "absolute",
+      bottom: -5,
+      left: "40%",
+      width: "20%",
+      height: "1.2px",
+      background: "#A0A6AF",
+  },
   }
 }));
 
@@ -37,31 +53,29 @@ export default function Image(props) {
 
   return (
     <div className={classes.root}>
-     
-        <Grid container xs ={12} spacing={2}>
-          <Grid item xs={6}>
+        <Typography variant="title">
+          <strong><h3>{props.data.title}</h3></strong>
+          <p className= {classes.subtitle}>{props.data.subtitle}</p>
+        </Typography>
+        <TableInfo/>
+        <Grid container>
+          {/* <SingleLineGridList></SingleLineGridList> */}
+          <Grid justify="center" item item xs={12} sm={6} style={{margin: "0px 50px 50px 0"}}>
             <img
               className={classes.image}
               src={getImgPath(props.data.src)}
               alt={props.data.alt}
             />
           </Grid>
-
-          <Grid item xs = {6} >
-            <Grid >
-              <Typography variant="title">
-                <strong><h2>{props.data.title}</h2></strong>
-                <hr width="100%" align="center" />
-              </Typography>
-              <Typography variant="comment">
-                <p className = {classes.p}>{props.data.text}</p>
-              </Typography>
-            </Grid>
+        
+          <Grid justify="center" item xs={12} sm={5}>
+            {props.data.paragraphs.map((paragraph,index) => (
+              <Typography variant="body1" key = {index}>
+                <p className = {classes.paragraph}>{paragraph}</p>
+            </Typography>
+            ))}
           </Grid>
-          <Grid><TableInfo/></Grid>
-          <SingleLineGridList></SingleLineGridList>
         </Grid>
-     
     </div>
   );
 }
