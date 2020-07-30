@@ -12,7 +12,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Recruit} />
         </Switch>
-        <ApplyButton path="/#entry"/>
+        <ApplyButton path="/#entryForm"/>
       </Router>
     </div>
   );
