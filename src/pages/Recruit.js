@@ -6,7 +6,7 @@ import RecruitJSON from "../data/recruit";
 export default function Recruit() {
   return (
     <React.Fragment>
-      {/* <Header data={RecruitJSON} /> */}
+      <Header />
       <Main data={RecruitJSON} />
     </React.Fragment>
   );
