@@ -4,7 +4,7 @@ import Heading from "./Heading";
 export default function Form(Props) {
   return (
     <div>
-    <Heading  content="Entry" />
+    <Heading  heading="Entry" />
     <div className="container">
       <form action={Props.data.action}　className="contact-box">
       <div className="left"></div>

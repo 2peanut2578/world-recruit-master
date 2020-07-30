@@ -6,6 +6,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Heading from './Heading';
 function getImgPath(imgSrc) {
   return require("../../img/" + imgSrc);
 }
@@ -35,7 +36,8 @@ export default function ViewList(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-       <h2>{props.data.heading}</h2>
+      <Heading  heading={props.data.heading} />
+      
       <Grid container spacing={3}>
       {props.data.paragraphs.map((para, index) => {
               return (
