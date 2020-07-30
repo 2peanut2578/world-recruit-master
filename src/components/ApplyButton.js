@@ -1,5 +1,8 @@
 import React from "react";
+import "./ApplyButton.css";
 
 export default function ApplyButton(props) {
-  return <div></div>;
+  return(
+    <a href={props.path} className="button">Entry now!</a>
+  );
 }

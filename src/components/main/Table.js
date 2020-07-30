@@ -1,37 +1,37 @@
 import React from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import { TextareaAutosize } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Grid } from "@material-ui/core";
+import list2 from "../../img/list2.jpg"
 
 const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    margin: "50px auto"
+  },
   table: {
     width: "50%",
     magin: "0 auto" 
+  },
+  row: {
+    display: "flex",
+    margin: " 0 20px 20px 0",
+  },
+  left: {
+    marginRight: "10px",
+    textAlign: "left",
+    width: "20%",
+  },
+  right: {
+    textAlign: "left",
+    width: "80%"
+  },
+  img: {
+    maxWidth: "100%"
   }
 });
-const StyledTableCell = withStyles(theme => ({
-  head: {
-    backgroundColor: theme.palette.common.white,
-    color: theme.palette.common.black
-  },
-  body: {
-    fontSize: 14
-  }
-}))(TableCell);
 
-const StyledTableRow = withStyles(theme => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover
-    }
-  }
-}))(TableRow);
+
+
 function createData(name, info) {
   return { name, info };
 }
@@ -41,7 +41,7 @@ const rows = [
   createData("資本金", "3,000万円"),
   createData(
     "会社所在地",
-    "〒500-8856 岐阜県岐阜市橋本町2-8濃飛ニッセイビル6階   ||  TEL 058-255-3066 / FAX 058-255-3633"
+    "〒500-8856 岐阜県岐阜市橋本町2-8濃飛ニッセイビル6階 || TEL 058-255-3066 / FAX 058-255-3633"
   ),
   createData("代表者氏名", "代表取締役　清水貴士"),
   createData(
@@ -58,26 +58,19 @@ export default function TableInfo() {
   const classes = useStyles();
 
   return (
-    <div>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="customized table">
-          <TableHead textalign="center">
-            <StyledTableCell colSpan="2" align="center">
-              株式会社ワールド
-            </StyledTableCell>
-          </TableHead>
-          <TableBody>
-            {rows.map(row => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                  {row.name}
-                </StyledTableCell>
-                <StyledTableCell align="left">{row.info}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+    <div className={classes.root}>
+      <Grid container>
+        <Grid item xs={12} sm={6}>
+          {rows.map((row, index) => (
+                    <span key = {index} className = {classes.row}>
+                      <p className = {classes.left}>{row.name}</p>
+                      <p className = {classes.right}>{row.info}</p>
+                    </span>
+          ))}
+        </Grid>
+        <Grid item xs={12} sm={6}><img className = {classes.img} src = {list2}></img></Grid>  
+       </Grid>
     </div>
   );
 }
+

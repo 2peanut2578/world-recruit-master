@@ -3,7 +3,11 @@ import "./Form.css";
 import Heading from "./Heading";
 export default function Form(Props) {
   return (
+<<<<<<< HEAD
     <div>
+=======
+    <div id="entryForm">
+>>>>>>> eaefc53155d898b8490ae35875b830e06a0ac895
     <Heading  heading="Entry" />
     <div className="container">
       <form action={Props.data.action}　className="contact-box">
