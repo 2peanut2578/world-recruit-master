@@ -1,11 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TableInfo from './Table';
+import TableInfo from "./Table";
 import Grid from "@material-ui/core/Grid";
-import Typography from '@material-ui/core/Typography';
-import SingleLineGridList from './ImageList';
-
-
+import Typography from "@material-ui/core/Typography";
 
 function getImgPath(imgSrc) {
   return require("../../img/" + imgSrc);
@@ -15,28 +12,29 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: "80%",
-    margin: "50px auto"
+    margin: "50px auto",
   },
   image: {
     maxWidth: "100%",
-    maxHeight: "100%"
+    maxHeight: "100%",
   },
   paper: {
     padding: theme.spacing(2),
-    margin: 'auto',
+    margin: "auto",
     maxWidth: 1200,
   },
   paragraph: {
     marginBottom: "20px",
     textAlign: "justify",
     lineHeight: "1.8",
+    paddingLeft: "30px",
   },
   subtitle: {
     position: "relative",
     fontSize: "12px",
     padding: "-20px 0 50px 0",
     color: `rgba(0,0,0,0.6)`,
-    '&:after': {
+    "&:after": {
       content: `' '`,
       position: "absolute",
       bottom: -5,
@@ -44,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
       width: "20%",
       height: "1.2px",
       background: "#A0A6AF",
+    },
   },
-  }
 }));
 
 export default function Image(props) {
@@ -53,29 +51,37 @@ export default function Image(props) {
 
   return (
     <div className={classes.root}>
-        <Typography variant="title">
-          <strong><h3>{props.data.title}</h3></strong>
-          <p className= {classes.subtitle}>{props.data.subtitle}</p>
-        </Typography>
-        <TableInfo/>
-        <Grid container>
-          {/* <SingleLineGridList></SingleLineGridList> */}
-          <Grid justify="center" item item xs={12} sm={6} style={{margin: "0px 50px 50px 0"}}>
-            <img
-              className={classes.image}
-              src={getImgPath(props.data.src)}
-              alt={props.data.alt}
-            />
-          </Grid>
-        
-          <Grid justify="center" item xs={12} sm={5}>
-            {props.data.paragraphs.map((paragraph,index) => (
-              <Typography variant="body1" key = {index}>
-                <p className = {classes.paragraph}>{paragraph}</p>
-            </Typography>
-            ))}
-          </Grid>
+      <Typography variant="title">
+        <strong>
+          <h3>{props.data.title}</h3>
+        </strong>
+        <p className={classes.subtitle}>{props.data.subtitle}</p>
+      </Typography>
+      <TableInfo />
+      <Grid container>
+        <Grid
+          justify="center"
+          item
+          item
+          xs={12}
+          sm={6}
+          style={{ margin: "0px 0 50px 0" }}
+        >
+          <img
+            className={classes.image}
+            src={getImgPath(props.data.src)}
+            alt={props.data.alt}
+          />
         </Grid>
+
+        <Grid justify="center" item xs={12} sm={6}>
+          {props.data.paragraphs.map((paragraph, index) => (
+            <Typography variant="body1" key={index}>
+              <p className={classes.paragraph}>{paragraph}</p>
+            </Typography>
+          ))}
+        </Grid>
+      </Grid>
     </div>
   );
 }

@@ -36,31 +36,3 @@
     transform: rotate(360deg);
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> eaefc53155d898b8490ae35875b830e06a0ac895
-.heading{
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-	position: relative;
-	margin-bottom: 10px;
-}
-
-.heading:after{
-	  content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    
-    transform: translateX(-50%);
-    height: 4px;
-    width: 50px;
-    border-radius: 2px;
-    background-color: #2ecc71;
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> eaefc53155d898b8490ae35875b830e06a0ac895
