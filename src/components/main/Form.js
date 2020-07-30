@@ -1,12 +1,15 @@
 import React from "react";
 import "./Form.css";
+import Heading from "./Heading";
 export default function Form(Props) {
   return (
+    <div>
+    <Heading  content="Entry" />
     <div className="container">
       <form action={Props.data.action}　className="contact-box">
       <div className="left"></div>
       <div className="right">
-      <h2 >Entry</h2> 
+  
       {Props.data.items.map((item, index) => {
           return (
               <div>
@@ -25,6 +28,7 @@ export default function Form(Props) {
       </div>
 
       </form>
+    </div>
     </div>
   );
 }
