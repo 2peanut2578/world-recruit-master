@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import Heading from "./Heading";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,37 +14,33 @@ const useStyles = makeStyles((theme) => ({
     width: "60%",
   },
   block: {
-    padding: "5px 5px 5px 5px",
+    padding: "10px",
     width: "100%",
-    textAlign: "justify",
+    "& h3": {
+      fontSize: "13px",
+      color: "#374048",
+    },
     "& p": {
-      fontSize: "14px",
+      fontSize: "12px",
       color: "#737c85",
     },
   },
-  subtitle: {
-    position: "relative",
-    fontSize: "12px",
-    padding: "-20px 0 50px 0",
-    color: `rgba(0,0,0,0.6)`,
-    "&:after": {
-      content: `' '`,
-      position: "absolute",
-      bottom: -5,
-      left: "30%",
-      width: "40%",
-      height: "1px",
-      background: "#A0A6AF",
+  content: {
+    margin: "auto",
+    maxWidth: "700px",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    "& ul": {
+      margin: 0,
+      padding: 10,
+      "& li": {
+        padding: 10,
+        paddingLeft: "50px",
+        textAlign: "left",
+        listStyleType: "circle",
+        listStylePosition: "inside",
+      },
     },
-  },
-  reason: {
-    position: "relative",
-    fontSize: "15px",
-    textAlign: "justify",
-    color: `rgba(0,0,0,0.6)`,
-  },
-  content:{
-    padding: "10px",
   },
 }));
 
@@ -54,27 +50,18 @@ export default function TextList(props) {
   return (
     <section className={classes.root}>
       <div className={classes.wrapper}>
-        <Typography variant="title">
-          <strong>
-            <h3>{props.data.title}</h3>
-          </strong>
-          <p className={classes.subtitle}>{props.data.subtitle}</p>
-        </Typography>
-        <Grid container spacing={1} className={classes.content}>
+        <Heading data={props.data} />
+        <Grid container spacing={1}>
           {props.data.items.map((item, index) => {
             return (
               <Grid item xs={6}>
-                <div className={classes.block}>                  
-                  <p>{item.para}</p>
+                <div className={classes.block}>
+                  <h3>{item.heading}</h3>
+                  <p>{item.content}</p>
                 </div>
               </Grid>
             );
           })}
-        </Grid>
-        <Grid justify="center" item xs={12} sm={12}>
-          <Typography variant="body1">
-            <p className={classes.reason}>{props.data.reason}</p>
-          </Typography>
         </Grid>
       </div>
     </section>
