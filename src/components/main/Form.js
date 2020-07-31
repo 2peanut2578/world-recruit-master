@@ -1,20 +1,16 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import "./Form.css";
-export default function Form(Props) {
+import Heading from "./Heading";
+export default function Form(props) {
   return (
     <div className="wraper">
       <div>
-        <Typography variant="title">
-          <strong>
-            <h3>ENTRY</h3>
-          </strong>
-          <p className="subtitle">エントリー</p>
-        </Typography>
-        <form action={Props.data.action} className="contact-box">
+        <Heading data={props.data} />
+
+        <form action={props.data.action} className="contact-box">
           <div className="left"></div>
           <div className="right">
-            {Props.data.items.map((item, index) => {
+            {props.data.items.map((item, index) => {
               return (
                 <div>
                   <input
