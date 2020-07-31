@@ -1,40 +1,47 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-      padding:"5px",
+  root: {
+    flexGrow: 1,
+    padding: "20px",
+    background: "#f8fbfd;",
+  },
+  wrapper: {
+    margin: "auto",
+    width: "60%",
+  },
+  block: {
+    padding: "10px",
+    width: "100%",
+    "& h3": {
+      fontSize: "13px",
+      color: "#374048",
     },
-    content:{
-      margin: "auto",
-      maxWidth: "700px",
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      '& ul': {
-        margin: 0,
-        padding: 10,
-      '& li': {
+    "& p": {
+      fontSize: "12px",
+      color: "#737c85",
+    },
+  },
+  content: {
+    margin: "auto",
+    maxWidth: "700px",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    "& ul": {
+      margin: 0,
+      padding: 10,
+      "& li": {
         padding: 10,
         paddingLeft: "50px",
         textAlign: "left",
         listStyleType: "circle",
         listStylePosition: "inside",
-      }}
+      },
     },
-    heading:{
-      fontSize:"20px",
-      paddingTop:"0px",
-      paddingBottom:"0px",
-      '&:hover': {
-        backgroundColor: "#fff",
-        fontSize:"40px",
-    },
-    },
-    reason:{
-      fontStyle:"italic"
-    }
+  },
 }));
 
 export default function TextList(props) {
@@ -42,20 +49,26 @@ export default function TextList(props) {
 
   return (
     <section className={classes.root}>
-      <Grid container spacing={1}>
-        <Grid item xs={12}>
-          <div className={classes.content}>
-            <span classes={classes.heading}>
-              {props.data.heading}</span>
-            <ul>
-              {props.data.items.map((item, index)=>{
-                return <li key={index} className={classes.li}>{item.para}</li>
-              })}
-            </ul>
-            <p className={classes.reason}>{props.data.reason}</p>
-          </div>
+      <div className={classes.wrapper}>
+        <Typography variant="title">
+          <strong>
+            <h3>ENTRY</h3>
+          </strong>
+          <p className="subtitle">エントリー</p>
+        </Typography>
+        <Grid container spacing={1}>
+          {props.data.items.map((item, index) => {
+            return (
+              <Grid item xs={6}>
+                <div className={classes.block}>
+                  <h3>{item.heading}</h3>
+                  <p>{item.content}</p>
+                </div>
+              </Grid>
+            );
+          })}
         </Grid>
-      </Grid>
+      </div>
     </section>
   );
 }
