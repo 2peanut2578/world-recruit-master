@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import Heading from "./Heading";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,12 +50,7 @@ export default function TextList(props) {
   return (
     <section className={classes.root}>
       <div className={classes.wrapper}>
-        <Typography variant="title">
-          <strong>
-            <h3>ENTRY</h3>
-          </strong>
-          <p className="subtitle">エントリー</p>
-        </Typography>
+        <Heading data={props.data} />
         <Grid container spacing={1}>
           {props.data.items.map((item, index) => {
             return (
