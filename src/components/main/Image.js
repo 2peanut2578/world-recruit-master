@@ -24,26 +24,11 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     maxWidth: 1200,
   },
-  paragraph: {
+  text: {
     marginBottom: "20px",
     textAlign: "justify",
     lineHeight: "1.8",
-    paddingLeft: "30px",
-  },
-  subtitle: {
-    position: "relative",
-    fontSize: "12px",
-    padding: "-20px 0 50px 0",
-    color: `rgba(0,0,0,0.6)`,
-    "&:after": {
-      content: `' '`,
-      position: "absolute",
-      bottom: -5,
-      left: "40%",
-      width: "20%",
-      height: "1.2px",
-      background: "#A0A6AF",
-    },
+    paddingLeft: "10px",
   },
 }));
 
@@ -53,7 +38,6 @@ export default function Image(props) {
   return (
     <div className={classes.root}>
       <Heading data={props.data} />
-
       <TableInfo />
       <Grid container>
         <Grid
@@ -72,8 +56,8 @@ export default function Image(props) {
 
         <Grid justify="center" item xs={12} sm={6}>
           {props.data.paragraphs.map((paragraph, index) => (
-            <Typography variant="body1" key={index}>
-              <p className={classes.paragraph}>{paragraph}</p>
+            <Typography className={classes.text} variant="body1" key={index}>
+              {paragraph}
             </Typography>
           ))}
         </Grid>
