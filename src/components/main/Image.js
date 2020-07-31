@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TableInfo from "./Table";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import Heading from "./Heading";
 
 function getImgPath(imgSrc) {
   return require("../../img/" + imgSrc);
@@ -51,17 +52,12 @@ export default function Image(props) {
 
   return (
     <div className={classes.root}>
-      <Typography variant="title">
-        <strong>
-          <h3>{props.data.title}</h3>
-        </strong>
-        <p className={classes.subtitle}>{props.data.subtitle}</p>
-      </Typography>
+      <Heading data={props.data} />
+
       <TableInfo />
       <Grid container>
         <Grid
           justify="center"
-          item
           item
           xs={12}
           sm={6}
