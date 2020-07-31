@@ -1,21 +1,17 @@
 import React from "react";
 import ViewList from "./ViewList";
-import TextList from "./TextList";
 import Form from "./Form";
 import Image from "./Image";
-
+import TextList from "./TextList";
 
 function ComponentSelector(section, index) {
   switch (section.type) {
-       case "Image":
+    case "Image":
       return <Image key={index} data={section} />;
-      
-        case "TextList":
-      return <TextList key={index} data={section} />;
-      
-      case "ViewList":
+    case "ViewList":
       return <ViewList key={index} data={section} />;
-      
+    case "TextList":
+      return <TextList key={index} data={section} />;
     case "Form":
       return <Form key={index} data={section} />;
     default:
