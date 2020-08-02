@@ -11,37 +11,34 @@ const useStyles = makeStyles((theme) => ({
   },
   wrapper: {
     margin: "auto",
-    width: "60%",
+    width: "70%",
   },
   block: {
-    padding: "10px",
+    paddingTop: "30px",
+    paddingBottom:"60px",
     width: "100%",
+
     "& h3": {
-      fontSize: "13px",
+      textAlign:"left",
+      paddingLeft:"30px",
+      fontSize: "18px",
       color: "#374048",
     },
     "& p": {
-      fontSize: "12px",
+      padding: "15px",
+      fontSize: "14px",
       color: "#737c85",
+      textAlign:"left",
     },
   },
-  content: {
-    margin: "auto",
-    maxWidth: "700px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    "& ul": {
-      margin: 0,
-      padding: 10,
-      "& li": {
-        padding: 10,
-        paddingLeft: "50px",
-        textAlign: "left",
-        listStyleType: "circle",
-        listStylePosition: "inside",
-      },
-    },
+  reason: {
+    position: "relative",
+    fontSize: "18px",
+    textAlign: "left",
+    color:"#374048",
   },
+  
+  
 }));
 
 export default function TextList(props) {
@@ -54,7 +51,7 @@ export default function TextList(props) {
         <Grid container spacing={1}>
           {props.data.items.map((item, index) => {
             return (
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <div className={classes.block}>
                   <h3>{item.heading}</h3>
                   <p>{item.content}</p>
@@ -62,6 +59,10 @@ export default function TextList(props) {
               </Grid>
             );
           })}
+        </Grid>
+
+        <Grid item xs={12}className ={classes.foot}>
+          <p className={classes.reason}>{props.data.reason}</p>
         </Grid>
       </div>
     </section>
