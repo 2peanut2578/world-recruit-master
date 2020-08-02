@@ -27,30 +27,28 @@ const RecruitJSON = {
         "そして、企業活動を通して社会に貢献することで、人々により豊かな働く環境を創造し、社会的に存在価値のある企業を目指します。",
       ],
     },
-    {
+  {
       type: "TextList",
       heading: "REASON",
-      subHeading: "仕事に",
+      subHeading: "Mừng bạn đến với WORLD !!!",
       items: [
         {
-          heading: "日本に技術",
-          content: "卒業後すぐに仕事に行きたい",
+          heading: "Cơ hội học tập",
+          content: "Bạn sẽ có cơ hội tiếp cận với những công nghệ mới. Học tập cùng các đồng nghiệp người Việt Nam đang sinh sống tại Nhật Bản. World cũng chú trọng phát triển cơ sở vật chất, xây dựng môi trường học tập làm việc hiện đại.",
         },
         {
-          heading: "日本に技術",
-          content: "日本に技術を勉強して作業を続けたい",
+          heading: "Cơ hội việc làm",
+          content: "Hoạt động của chúng tôi trãi rộng hầu hết trên các ngành nghề mang lại cho bạn nhiều sự lựa chọn. Bạn sẽ cùng chúng tôi tham gia các hoạt động nghiên cứu, phát triển thiết kế và triển khai các giải pháp, sản phẩm, dịch vụ hiệu quả nhất cho tất cả khách hàng.",
         },
         {
-          heading: "日本に技術",
-          content: "コミュニケーション能力と管理能力を向上したい",
+          heading: "Cơ hội phát triển",
+          content: "Bạn sẽ được truyền cảm hứng, được đào tạo bồi dưỡng, và tạo điều kiện tốt nhất để để trở thành các chuyên gia trong lĩnh vực bạn lựa chọn. Hãy thể hiện hết khả năng của mình để cùng chúng tôi, mở rộng hoạt động phát triển, tìm kiếm chăm sóc khách hàng và đảm bảo sự phát triển bền vững của công ty. Tương xứng là mức thu nhập tốt mà bạn sẽ nhận được, và cơ hội thăng tiến trong tương lai.",
         },
         {
-          heading: "日本に技術",
-          content: "プロの作業環境で働きたくて早くキャリアを上達したい",
+          heading: "Chính sách đãi ngộ",
+          content: "World rất chú trọng đến chính sách đãi ngộ, quan tâm đến đời sống của cán bộ nhân viên với phương châm tạo cho cán bộ nhân viên có một cuộc sống “đầy đủ về vật chất và phong phú về tinh thần”. Hệ thống đãi ngộ bao gồm : Ngày nghỉ, Lương, Thưởng, Phụ cấp, Phúc lợi xã hội... ",
         },
       ],
-      reason:
-        "ワールドに加入ください.新卒・中途のIT技術者を問わず、スキルに応じて配属やプロジェクトのアサインを決定します。スキルが高いメンバーにどんどんチャンスを与えていくつもりですので、我こそはという方、お待ちしております！",
     },
     {
       type: "ViewList",
